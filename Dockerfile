@@ -28,6 +28,7 @@ RUN ARCH=$(uname -m) \
 RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
     && apk del tzdata
+COPY ./.vimrc /root/
 COPY ./init_kube.sh /
 RUN chmod +x /init_kube.sh
 USER root
